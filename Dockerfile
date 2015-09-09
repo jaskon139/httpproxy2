@@ -1,23 +1,23 @@
-FROM alpine:latest
-MAINTAINER Jessica Frazelle <jess@docker.com>
+FROM ubuntu:14.04.2
 
-ENV LANG en_US.UTF-8
+ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apk update && apk add \
-	build-base \
-	ca-certificates \
-	libffi-dev \
-	libxml2-dev \
-	libxslt-dev \
-	openssl-dev \
-	python \
-	python-dev \
-	py-pip \
-	&& rm -rf /var/cache/apk/* \
-	&& pip install mitmproxy
-	
+COPY 90AlwaysYes /etc/apt/apt.conf.d/90AlwaysYes
+
+RUN apt-get update
+RUN apt-get install python-pip
+RUN apt-get install python-dev
+RUN apt-get install build-essential
+RUN apt-get install libffi-dev
+RUN apt-get install libssl-dev
+RUN apt-get install libxml2-dev
+RUN apt-get install libxslt1-dev
+
+RUN pip install mitmproxy
+
 EXPOSE 8080
-EXPOSE 8081
 
-CMD [ "mitmproxy" ]
+CMD ["/bin/bash"]
+	
+
 
