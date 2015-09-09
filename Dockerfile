@@ -15,7 +15,9 @@ RUN apk update && apk add \
 	py-pip \
 	&& rm -rf /var/cache/apk/* \
 	&& pip install mitmproxy
+	
+EXPOSE 8080
+EXPOSE 8081
 
 CMD [ "mitmproxy" ]
 
-EXPOSE 80
