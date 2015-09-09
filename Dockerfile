@@ -15,7 +15,7 @@ RUN apt-get install libxslt1-dev
 
 RUN pip install mitmproxy
 
-ENV LANG en_US.UTF-8
+RUN echo "LANG=en_US.UTF-8" > /etc/environment
 
 EXPOSE 8080
 
