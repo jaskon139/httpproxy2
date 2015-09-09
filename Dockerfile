@@ -17,9 +17,12 @@ RUN pip install mitmproxy
 
 RUN echo "LANG=en_US.UTF-8" >> /etc/environment
 
+COPY autorun.sh /bin/autorun.sh
+RUN chmod 777 /bin/autorun.sh
+
 EXPOSE 8080
 
-CMD ["mitmproxy"]
+CMD ["/bin/autorun.sh"]
 	
 
 
