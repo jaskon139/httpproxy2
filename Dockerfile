@@ -15,9 +15,11 @@ RUN apt-get install libxslt1-dev
 
 RUN pip install mitmproxy
 
+ENV LANG en_US.UTF-8
+
 EXPOSE 8080
 
-CMD ["/bin/bash"]
+CMD ["mitmproxy"]
 	
 
 
