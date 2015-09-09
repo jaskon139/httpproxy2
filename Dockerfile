@@ -19,7 +19,7 @@ RUN echo "LANG=en_US.UTF-8" >> /etc/environment
 
 EXPOSE 8080
 
-CMD ["mitmproxy"]
+CMD ["export LANG="en_US.UTF-8 && mitmproxy"]
 	
 
 
